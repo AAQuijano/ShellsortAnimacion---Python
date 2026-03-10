@@ -1,12 +1,12 @@
 
 # Proyecto Final - Algoritmo
 
-from tkinter import *
+from tkinter import Tk, Canvas, Button, Entry, Frame, Label, RIDGE, BOTTOM, E
 import time
 from tkinter import messagebox
+from functools import partial
 
-
-class Proyecto_ShellSort(object):
+class ShellSort(object):
      def __init__(self):
         self.root = Tk()
         self.root.title("Algoritmo de Ordenamiento ShellSort")
@@ -71,7 +71,7 @@ class Proyecto_ShellSort(object):
           lbl_6.pack()
           lbl_8 = Label(self.pag, text = "PROYECTO FINAL: Metodo de Ordenamiento ShellSort\n\n",bg=c_letra,font=(letra,12,'bold'),fg = clor)
           lbl_8.pack()
-          lbl_9 = Label(self.pag, text = "INTEGRANTES:\nMorales Steven   8-940-2354\nWong Andres   8-936-1553\nQuijano Antonio   8-908-1148\n\n",bg=c_letra,fg = clor,font=(letra,12,'bold'))
+          lbl_9 = Label(self.pag, text = "AUTOR: \nAntonio Quijano   8-908-1148\n\n",bg=c_letra,fg = clor,font=(letra,12,'bold'))
           lbl_9.pack()
           lbl_01 = Label(self.pag, text = "PROFESOR: Samuel Jimenez\n",bg=c_letra,font=(letra,12,'bold'),fg = clor)
           lbl_01.pack()
@@ -128,7 +128,7 @@ class Proyecto_ShellSort(object):
 
 
      def ordenar(self):
-          self.ShellSort(self.arr,len(self.arr),len(self.arr),self.cir,self.text)
+          self.Algoritmo_ShellSort(self.arr,len(self.arr),len(self.arr),self.cir,self.text)
 
      
 
@@ -211,10 +211,10 @@ class Proyecto_ShellSort(object):
                     track = 1
                     print(track)
                a+=1
-               
-               
 
-     def ShellSort(self,vector,tamaño,largo,vector_c,vector_t):
+
+
+     def Algoritmo_ShellSort(self,vector,tamaño,largo,vector_c,vector_t):
           dist = int(tamaño // 2)
           a = int(0)
           x = int(0)
@@ -231,7 +231,8 @@ class Proyecto_ShellSort(object):
                          vector[x] = vector[x+dist]
                          vector[x+dist] = t
                          
-                         self.root.after(0,self.animation(vector_c[x],vector_c[x+dist],vector_t[x],vector_t[x+dist],dist))
+                         anime = partial(self.animation,vector_c[x],vector_c[x+dist],vector_t[x],vector_t[x+dist],dist)
+                         self.root.after(0, anime)
                          cir = vector_c[x]
                          vector_c[x] = vector_c[x+dist]
                          vector_c[x+dist] = cir
@@ -244,7 +245,7 @@ class Proyecto_ShellSort(object):
 
                     x+=1
 
-               self.ShellSort(vector,dist,largo,vector_c,vector_t)
+               self.Algoritmo_ShellSort(vector,dist,largo,vector_c,vector_t)
         
           else:
                p = int(0)
@@ -257,7 +258,8 @@ class Proyecto_ShellSort(object):
                               vector[x] = vector[x+1]
                               vector[x+1] = t
 
-                              self.root.after(0,self.animation(vector_c[x],vector_c[x+1],vector_t[x],vector_t[x+1],1))
+                              anime = partial(self.animation,vector_c[x],vector_c[x+dist],vector_t[x],vector_t[x+dist],dist)
+                              self.root.after(0, anime)
                               cir = vector_c[x]
                               vector_c[x] = vector_c[x+1]
                               vector_c[x+1] = cir
@@ -269,8 +271,8 @@ class Proyecto_ShellSort(object):
 
                          x+=1
                     p+=1
-                                    
+                          
                
 
-Proyecto_ShellSort()
+ShellSort()
        

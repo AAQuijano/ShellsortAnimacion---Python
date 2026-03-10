@@ -1,3 +1,0 @@
-Algoritmo ShellSort
-
--Proyecto de ordenar en orden creciente lista de numeros utilizando el algoritmo de shellsort en python con animacion incluida
