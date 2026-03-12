@@ -156,7 +156,7 @@ class ShellSort(object):
                y = 1
                if track == 0:
                     for i in range(0,100):
-                         time.sleep(0.025)
+                         time.sleep(0.007)
                          self.canvas.move(oval2, x, y)
                          self.canvas.move(oval1, x, y)
                          self.canvas.move(text1, x, y)
@@ -169,7 +169,7 @@ class ShellSort(object):
                     
                else:
                     for i in range(0,100):
-                         time.sleep(0.025)
+                         time.sleep(0.007)
                          self.canvas.move(oval2, x, -y)
                          self.canvas.move(oval1, x, -y)
                          self.canvas.move(text1, x, -y)
@@ -191,7 +191,7 @@ class ShellSort(object):
                y = 1
                if track == 0:
                     for i in range(0,100):
-                         time.sleep(0.025)
+                         time.sleep(0.007)
                          self.canvas.move(oval2, x, -y)
                          self.canvas.move(text_oval2, x, -y)
                          self.canvas.move(oval1, x, y)
@@ -202,7 +202,7 @@ class ShellSort(object):
                     
                else:
                     for i in range(0,100):
-                         time.sleep(0.025)
+                         time.sleep(0.007)
                          self.canvas.move(oval2, -ca, y)
                          self.canvas.move(text_oval2, -ca, y)
                          self.canvas.move(oval1, ca, -y)
