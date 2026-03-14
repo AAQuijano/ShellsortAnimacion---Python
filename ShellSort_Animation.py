@@ -85,6 +85,7 @@ class ShellSort(object):
           
 
      def New_arr(self):
+          self.ordenando = False
           x = int(0)
           long = int(len(self.arr))
           self.e[0] = 1
@@ -100,6 +101,7 @@ class ShellSort(object):
           self.canvas.delete(self.comp)
           self.canvas.itemconfig(self.acu_text,text = str(self.acumulador))
           self.agregar['state'] = 'normal'
+          self.do['state'] = 'normal'
 
      def crear_circu(self):
              if self.num.get():
@@ -110,6 +112,7 @@ class ShellSort(object):
                   self.text.append(self.texto)
                   self.arr.append(b)
                   self.e[0] = self.e[0]+1
+                  self.num.delete(0, 'end')
                   if self.e[0] > 13:
                        self.agregar['state'] = 'disabled'
           
@@ -129,6 +132,9 @@ class ShellSort(object):
 
 
      def ordenar(self):
+          self.ordenando = True
+          self.agregar['state'] = 'disabled'
+          self.do['state'] = 'disabled'
           self.Algoritmo_ShellSort(self.arr,len(self.arr),len(self.arr),self.cir,self.text)
 
      
@@ -216,6 +222,8 @@ class ShellSort(object):
 
 
      def Algoritmo_ShellSort(self,vector,long,largo,vector_c,vector_t):
+          if self.ordenando == False:
+               return
           dist = int(long // 2)
           x = int(0)
           cir = ()
@@ -230,8 +238,9 @@ class ShellSort(object):
                          vector[x] = vector[x+dist]
                          vector[x+dist] = t
                          
-                         anime = partial(self.animation,vector_c[x],vector_c[x+dist],vector_t[x],vector_t[x+dist],dist)
-                         self.root.after(0, anime)
+                         self.animation(vector_c[x],vector_c[x+dist],vector_t[x],vector_t[x+dist],dist)
+                         # anime = partial(self.animation,vector_c[x],vector_c[x+dist],vector_t[x],vector_t[x+dist],dist)
+                         # self.root.after(0, anime)
                          cir = vector_c[x]
                          vector_c[x] = vector_c[x+dist]
                          vector_c[x+dist] = cir
@@ -257,8 +266,9 @@ class ShellSort(object):
                               vector[x] = vector[x+1]
                               vector[x+1] = t
 
-                              anime = partial(self.animation,vector_c[x],vector_c[x+dist],vector_t[x],vector_t[x+dist],dist)
-                              self.root.after(0, anime)
+                              self.animation(vector_c[x],vector_c[x+dist],vector_t[x],vector_t[x+dist],dist)
+                              # anime = partial(self.animation,vector_c[x],vector_c[x+dist],vector_t[x],vector_t[x+dist],dist)
+                              # self.root.after(0, anime)
                               cir = vector_c[x]
                               vector_c[x] = vector_c[x+1]
                               vector_c[x+1] = cir
