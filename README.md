@@ -23,7 +23,7 @@ Animación visual del algoritmo de ordenamiento ShellSort implementada en Python
 
 ## Uso
 1. Ejecutar el archivo `Proyecto_Final.py`
-2. Agregar valores al arreglo (máximo 13 valores)
+2. Agregar valores al arreglo (máximo 11 valores)
 3. Hacer clic en "Ordenar Arreglo" para ver la animación del ordenamiento ShellSort
 4. Usar "Nuevo Arreglo" para reiniciar
 
