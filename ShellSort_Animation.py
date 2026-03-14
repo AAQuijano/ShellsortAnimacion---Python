@@ -97,6 +97,7 @@ class ShellSort(object):
           self.cir[:] = []
           self.text[:] = []
           self.acumulador = int(0)
+          self.canvas.delete(self.comp)
           self.canvas.itemconfig(self.acu_text,text = str(self.acumulador))
           self.agregar['state'] = 'normal'
 
@@ -214,11 +215,9 @@ class ShellSort(object):
 
 
 
-     def Algoritmo_ShellSort(self,vector,tamaño,largo,vector_c,vector_t):
-          dist = int(tamaño // 2)
-          a = int(0)
+     def Algoritmo_ShellSort(self,vector,long,largo,vector_c,vector_t):
+          dist = int(long // 2)
           x = int(0)
-          t = int()
           cir = ()
           text = ()
           
